@@ -1,16 +1,27 @@
- import { useState } from "react";
- 
+ import { Link } from "react-router";
+
  const RoutinesList = ({ routines }) => {
   console.log(routines);
   return (
     <ul>
       {routines.map((routine) => (
-        <li  key={routine.id}>
-         {routine.name}
-        </li>
+        <RoutineLi
+          key={routine.id}
+          routine={routine}
+        />
       ))}
     </ul>
   );
  };
 
  export default RoutinesList;
+
+ const RoutineLi = ({ routine }) => {
+
+  return (
+    <li>
+      <Link to={"/routines/" + routine.id}>{routine.name}</Link>
+    </li>
+  )
+ };
+

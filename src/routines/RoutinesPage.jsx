@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getRoutines } from "../api/activities";
+import { getRoutines } from "../api/routines";
 import RoutinesList from "./RoutinesList";
 
 const RoutinesPage = () => {
