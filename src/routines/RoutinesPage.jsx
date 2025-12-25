@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { getRoutines } from "../api/activities";
+import RoutinesList from "./RoutinesList";
 
 const RoutinesPage = () => {
   const [routines, setRoutines] = useState([]);
@@ -13,7 +15,11 @@ const RoutinesPage = () => {
   }, []);
 
   return (
-    <h1>Routines:</h1>
+    <>
+      <h1>Routines:</h1>
+      <RoutinesList routines={routines} />
+    </>
+    
   )
 };
 

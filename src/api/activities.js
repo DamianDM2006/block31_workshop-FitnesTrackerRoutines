@@ -23,6 +23,18 @@ export const getActivity = async (id) => {
   }
 }
 
+export const getRoutines = async() => {
+  try{
+    const response = await fetch(API + "/routines");
+    const jsonresponse = await response.json();
+    console.log(jsonresponse);
+    return jsonresponse;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+}
+
 /**
  * Sends a new activity to the API to be created.
  * A valid token is required.
