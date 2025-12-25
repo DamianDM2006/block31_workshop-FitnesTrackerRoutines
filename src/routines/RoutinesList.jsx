@@ -1,7 +1,6 @@
  import { Link } from "react-router";
 
  const RoutinesList = ({ routines }) => {
-  console.log(routines);
   return (
     <ul>
       {routines.map((routine) => (

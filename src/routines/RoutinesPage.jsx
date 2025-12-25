@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getRoutines } from "../api/routines";
 import RoutinesList from "./RoutinesList";
+import RoutineForm from "./RoutineForm";
 
 const RoutinesPage = () => {
   const [routines, setRoutines] = useState([]);
@@ -18,6 +19,7 @@ const RoutinesPage = () => {
     <>
       <h1>Routines:</h1>
       <RoutinesList routines={routines} />
+      <RoutineForm syncRoutines={syncRoutines}/>
     </>
     
   )
