@@ -42,3 +42,21 @@ export const createRoutine = async (token, routine) => {
     throw Error(result.message);
   }
 };
+
+export const deleteRoutine = async(token, id) => {
+  if (!token) {
+    throw Error("You must be signed in to delete a routine.");
+  }
+
+  const response = await fetch(API + "/routines/" + id, {
+    method: "DELETE",
+    headers: { Authorization: "Bearer " + token },
+  });
+
+  if (!response.ok) {
+    const result = await response.json();
+    console.log(response);
+    console.log(result);
+    throw Error(result.message);
+  }
+};
