@@ -55,8 +55,6 @@ export const deleteRoutine = async(token, id) => {
 
   if (!response.ok) {
     const result = await response.json();
-    console.log(response);
-    console.log(result);
     throw Error(result.message);
   }
 };
