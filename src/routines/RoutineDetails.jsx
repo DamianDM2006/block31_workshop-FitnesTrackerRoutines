@@ -30,7 +30,6 @@ const RoutineDetails = () => {
       setError(err.message);
     }
   }
-  console.log(`routine`, routine);
   if(!routine) return <p>Loading. . .</p>
 
   return (
@@ -38,7 +37,7 @@ const RoutineDetails = () => {
       <h1>Routine: {routine.name}</h1>
       <h3>Goal:  {routine.goal}</h3>
       <p>Submitted by: {routine.creatorName}</p>
-      <Sets sets={sets}/>        
+      <Sets sets={sets} routine={routine}/>        
       {token && <button onClick={tryDelete}>Delete this routine</button>}
       {error && <p role="alert"></p>}
     </>
