@@ -12,36 +12,37 @@ const RoutineDetails = () => {
   const [error, setError] = useState(null);
   const [sets, setSets] = useState([]);
 
+  const syncRoutine = async () => {
+    const data = await getRoutine(id);
+    setRoutine(data);
+    setSets(data.sets);
+  };
+
   useEffect(() => {
-    const syncRoutine = async () => {
-      const data = await getRoutine(id);
-      setRoutine(data);
-      setSets(data.sets);
-    };
     syncRoutine();
   }, [id]);
-  
+
   const tryDelete = async () => {
     setError(null);
     try {
       await deleteRoutine(token, routine.id);
       navigate("/routines");
-    } catch(err) {
+    } catch (err) {
       setError(err.message);
     }
-  }
-  if(!routine) return <p>Loading. . .</p>
+  };
+  if (!routine) return <p>Loading. . .</p>;
 
   return (
     <>
       <h1>Routine: {routine.name}</h1>
-      <h3>Goal:  {routine.goal}</h3>
+      <h3>Goal: {routine.goal}</h3>
       <p>Submitted by: {routine.creatorName}</p>
-      <Sets sets={sets} routine={routine}/>        
+      <Sets sets={sets} routine={routine} syncRoutine={syncRoutine} />
       {token && <button onClick={tryDelete}>Delete this routine</button>}
       {error && <p role="alert"></p>}
     </>
-  )
+  );
 };
 
 export default RoutineDetails;

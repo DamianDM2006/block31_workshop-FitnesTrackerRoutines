@@ -5,11 +5,11 @@ export const getSetById = async (id) => {
     const response = await fetch(API + "/sets/" + id);
     const jsonResponse = await response.json();
     return jsonResponse;
-  } catch(err) {
+  } catch (err) {
     console.error(err);
     return null;
   }
-}
+};
 
 export const createSet = async (token, set) => {
   try {
@@ -19,16 +19,14 @@ export const createSet = async (token, set) => {
         "Content-Type": "application/json",
         Authorization: "Bearer " + token,
       },
-      body: JSON.stringify(set)
+      body: JSON.stringify(set),
     });
     if (!response.ok) {
       const result = await response.json();
       throw Error(result.message);
     }
-
-    }
-   catch (err) {
+  } catch (err) {
     console.error(err);
     return null;
   }
-}
+};

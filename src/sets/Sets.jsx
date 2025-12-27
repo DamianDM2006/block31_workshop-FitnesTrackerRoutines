@@ -1,13 +1,9 @@
 import SetForm from "./SetForm.jsx";
 
-const Sets = ({ sets, routine }) => {
-  console.log(`routine in Sets`, routine);
+const Sets = ({ sets, routine, syncRoutine }) => {
   const addSet = () => {
-    if (sets.length === 0)
-      return <p>There are no sets for this routine.</p>
+    if (sets.length === 0) return <p>There are no sets for this routine.</p>;
   };
-
-  console.log(`in Sets`, sets);
 
   return (
     <>
@@ -22,7 +18,7 @@ const Sets = ({ sets, routine }) => {
       </ul>
       {addSet()}
       {/* <button onClick={SetForm}>Add a set to this routine</button> */}
-      <SetForm sets={sets} routine={routine} />
+      <SetForm sets={sets} routine={routine} syncRoutine={syncRoutine} />
     </>
   );
 };
