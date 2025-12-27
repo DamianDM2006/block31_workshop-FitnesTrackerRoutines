@@ -1,15 +1,16 @@
-import { useState } from "react";
-import { useAuth } from "../auth/AuthContext";
+import { useState, useEffect } from "react";
+import { useAuth } from "../auth/AuthContext.jsx";
 
- const SetForm = ({sets}) => {
+ const SetForm = ({ sets }) => {
   console.log(`sets in SetForm`, sets);
-  // const { token } = useAuth();
-  // const [error, setError] = useState(null);
+  const { token } = useAuth();
+  const [error, setError] = useState(null);
+  
 
-  // const tryCreateSet = async (formData) => {
-  //   setError(null);
-  //   const activityId = formData.get("activityId");
-  // }
-}
+  const tryCreateSet = async () => {
+    setError(null);
+  }
+
+ }
 
 export default SetForm;
